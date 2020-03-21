@@ -1,6 +1,6 @@
 <div align="justify">
 
-<u><h1> 2048 Game</u></h1>
+<h1><u> 2048 Game</u></h1>
 
 Un clon C ++ / Qt del popular juego 2048.
 
@@ -10,11 +10,25 @@ El núcleo se desacopla de la GUI utilizando el patrón de observación, por lo 
 
 ---
 
-<u><h2> Instalacion</u></h2>
+<h2><u> Instalacion</u></h2>
 
 - Descargar e Instalar Qt (https://www.qt.io/download-open-source/)
 - Abra Qt Creator, File> Open File or Project ...> Localice `ExpGame.pro` y selecciónelo
 - Construir proyecto
 - Ejecutar
+  
 
+---
+<h2><u> Pendientes</u></h2>
+
+- Diagrama de clases
+- Complementar documentacion del codigo 
+- Clases segun GRASP (al menos 10)
+- 4 Metodos recursivos
+- 4 Punteros
+- 2 Listas
+- 2 Arboles
+- 4 Excepciones
+- 2 Archivos de persistencia (Cargar ganadores y Cargar jugadores totales)
+  
 <div>
