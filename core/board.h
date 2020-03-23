@@ -16,9 +16,9 @@ public:
 
     Board(int dimension);
     Board(const Board& other);
-    // destroy board
+    // destruir tablero
     ~Board();
-    // put the board in start state (everything empty except for two 2 tiles)
+    // coloca el tablero en estado inicial (todo está vacío, excepto dos 2 fichas)
     void reset();
     Tile* getTile(int i, int j);
     int getDimension() const { return dimension; }
@@ -26,27 +26,31 @@ public:
     bool full() const;
     int getPointsScoredLastRound() const { return pointsScoredLastRound; }
     bool isTileCollisionLastRound() const { return tileCollisionLastRound; }
-    // is there still a move possible
+    // verifica si todavía hay un movimiento posible
     bool movePossible() const;
 
 private:
     QVector<QVector<Tile*> > board;
     int dimension;
 
-    // create an empty board
+    // crea un tablero vacío
     void init();
-    // generate a random, free position on the board
+
+    // genera una posición libre y aleatoria en el tablero
     QVector<int> freePosition();
-    // returns true if the current state of the board is different from the argument
+
+
+    // devuelve verdadero si el estado actual del tablero es diferente del argumento
     bool changed(Board& other) const;
 
     bool inbounds(int i, int j);
-    // changes state!! (tileCollision & pointsScoredLastRound)
+
+    // cambia de estado (tileCollision & pointsScoredLastRound)
     void moveHorizontally(int i, int j, Direction dir);
     void moveVertically(int i, int j, Direction dir);
     void handleCollision(int i, int j);
 
-    // some reinitalisation for the next round
+    // Reinicializar para el proximo movimiento
     void prepareForNextMove();
 
     int pointsScoredLastRound;

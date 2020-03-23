@@ -13,6 +13,7 @@ TEMPLATE = app
 QMAKE_CXXFLAGS += -std=c++11
 
 SOURCES += main.cpp\
+    core/tree.cpp \
         gui/mainwindow.cpp \
     core/tile.cpp \
     core/board.cpp \
@@ -28,6 +29,7 @@ HEADERS  += gui/mainwindow.h \
     core/tile.h \
     core/board.h \
     core/game.h \
+    core/tree.h \
     gui/qgameboard.h \
     gui/qtile.h \
     gui/qresetbutton.h \

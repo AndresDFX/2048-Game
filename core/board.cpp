@@ -2,9 +2,8 @@
 #include "core/tile.h"
 
 #include <iostream>
-#include <stdlib.h>     /* srand, rand */
-#include <time.h>       /* time */
-
+#include <stdlib.h>
+#include <time.h>
 #include <QDebug>
 
 using namespace std;
@@ -177,9 +176,13 @@ bool Board::movePossible() const
     }
 }
 
+
+
 void Board::moveHorizontally(int i, int j, Direction dir)
 {
-    if (board[i][j] != NULL) {
+
+
+        if (board[i][j] != NULL) {
         bool tileCollision = false;
         int newj;
         if (dir == RIGHT)
@@ -228,11 +231,16 @@ void Board::moveHorizontally(int i, int j, Direction dir)
         if (tileCollision)
             tileCollisionLastRound = true;
     }
+
+
 }
 
-void Board::moveVertically(int i, int j, Direction dir)
-{
-    if (board[i][j] != NULL) {
+
+//Funcion recursiva
+void Board::moveVertically(int i, int j, Direction dir){
+
+
+ if (board[i][j] != NULL) {
         bool tileCollision = false;
         int newi;
         if (dir == UP)
@@ -281,6 +289,8 @@ void Board::moveVertically(int i, int j, Direction dir)
             tileCollisionLastRound = true;
     }
 
+
+
 }
 
 void Board::handleCollision(int i, int j)
@@ -300,6 +310,7 @@ bool Board::full() const
     return full;
 }
 
+//Funcion recursiva
 bool Board::inbounds(int i, int j)
 {
     return (i >= 0 && j >= 0 && i < dimension && j < dimension);

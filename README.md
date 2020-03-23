@@ -6,7 +6,7 @@ Un clon C ++ / Qt del popular juego 2048.
 
 La lógica del juego está escrita en C ++, la GUI en Qt 5.14.1 La GUI completa está escrita en código, no se utilizó el diseñador de interfaz de usuario de Qt Creator.
 
-El núcleo se desacopla de la GUI utilizando el patrón de observación, por lo que es fácil extraer el código, extraer el núcleo y luego construir una nueva GUI a su alrededor.
+El núcleo se desacopla de la GUI utilizando el patrón de observator, por lo que es fácil extraer el código, extraer el núcleo y luego construir una nueva GUI a su alrededor.
 
 ---
 
@@ -21,14 +21,14 @@ El núcleo se desacopla de la GUI utilizando el patrón de observación, por lo 
 ---
 <h2><u> Pendientes</u></h2>
 
-- Diagrama de clases
-- Complementar documentacion del codigo 
-- Clases segun GRASP (al menos 10)
-- 4 Metodos recursivos
-- 4 Punteros
-- 2 Listas
-- 2 Arboles
-- 4 Excepciones
-- 2 Archivos de persistencia (Cargar ganadores y Cargar jugadores totales)
+- Diagrama de clases (0/1)
+- Complementar documentacion del codigo (0/1)
+- 10 Clases segun GRASP (10/10)
+- 4 Metodos recursivos (4/4)
+- 4 Punteros (4/4)
+- 2 Listas (2/2)
+- 2 Arboles (2/2)
+- 4 Excepciones (0/4)
+- 2 Archivos de persistencia(2/2)
   
 <div>

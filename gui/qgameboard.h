@@ -4,6 +4,7 @@
 #include "core/observer.h"
 #include "qgameoverwindow.h"
 
+
 #include <QVector>
 #include <QWidget>
 
@@ -21,26 +22,32 @@ class QGameBoard : public QWidget, public Observer
 public:
     explicit QGameBoard(QWidget *parent = 0);
     ~QGameBoard();
-
     void notify();
 
 private:
 
     Game* game;
-    // gui representation of board
+
+    // representación gui del tablero
     QVector<QVector<QTile*> > gui_board;
-    // main layout
+
+    // diseño principal
     QVBoxLayout *mainLayout;
-    // grid layout of board
+
+    // diseño de cuadrícula del tablero
     QGridLayout *boardLayout;
-    // score widget
+
+    // puntaje widget
     QLabel *score;
-    // game over widget
+
+    // juego sobre widget
     QGameOverWindow gameOverWindow;
-    // winner widget
+
+    // Widget ganador
     QLabel *youwin;
 
     void drawBoard();
+
 
 protected:
     void keyPressEvent(QKeyEvent *event);
