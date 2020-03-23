@@ -21,14 +21,14 @@ El núcleo se desacopla de la GUI utilizando el patrón de observator, por lo qu
 ---
 <h2><u> Pendientes</u></h2>
 
-- Diagrama de clases (0/1)
+- Diagrama de clases (1/1)
 - Complementar documentacion del codigo (0/1)
 - 10 Clases segun GRASP (10/10)
 - 4 Metodos recursivos (4/4)
 - 4 Punteros (4/4)
 - 2 Listas (2/2)
 - 2 Arboles (2/2)
-- 4 Excepciones (0/4)
+- 4 Excepciones (4/4)
 - 2 Archivos de persistencia(2/2)
   
 <div>

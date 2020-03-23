@@ -85,14 +85,13 @@ void QGameBoard::keyPressEvent(QKeyEvent *event)
     }
 }
 
-
 void QGameBoard::notify()
 {
     if (game->isGameOver())
         gameOverWindow.show();
 
-    if (game->won())
-        score->setText(QString("Llegaste a 2048, Felicitaciones! Sigue jugando para .\t\t SCORE: %1").arg(game->getScore()));
+    if (game->getScore()==2048)
+        score->setText(QString("Su puntaje es 2048, Felicitaciones! Siga jugando para aumentar su puntaje.\t\t PUNTAJE: %1").arg(game->getScore()));
     else
         score->setText(QString("PUNTAJE: %1").arg(game->getScore()));
 

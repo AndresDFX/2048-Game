@@ -1,7 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
-#define WINNING_VALUE 2048
+
 
 #include "core/subject.h"
 #include "core/board.h"

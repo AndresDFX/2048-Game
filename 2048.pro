@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2014-03-11T13:19:13
+# Project created by QtCreator 2020-03-11T13:19:13
 #
 #-------------------------------------------------
 
@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = ExpGame
+TARGET = 2048
 TEMPLATE = app
 QMAKE_CXXFLAGS += -std=c++11
 
