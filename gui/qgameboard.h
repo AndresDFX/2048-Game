@@ -1,3 +1,11 @@
+/**
+  * @file qgameboard.h
+  * @version 1.0
+  * @date 25/03/2020
+  *
+*/
+
+
 #ifndef QGAMEBOARD_H
 #define QGAMEBOARD_H
 
@@ -16,6 +24,10 @@ class QGridLayout;
 class QVBoxLayout;
 class QLabel;
 
+/**
+ * @brief Clase que asocia el juego dentro del tablero con los propios componentes de QT
+ */
+
 class QGameBoard : public QWidget, public Observer
 {
     Q_OBJECT
@@ -23,6 +35,11 @@ public:
     explicit QGameBoard(QWidget *parent = 0);
     ~QGameBoard();
     void notify();
+
+    /**
+     * @brief Metodo que dibuja todos los componentes dentro de un tablero en un Layout
+     */
+    void drawBoard();
 
 private:
 
@@ -46,10 +63,12 @@ private:
     // Widget ganador
     QLabel *youwin;
 
-    void drawBoard();
-
 
 protected:
+    /**
+     * @brief Manejador de eventos para el teclado
+     * @param event Recibe el evento del teclado dentro de las opciones permitidas en el juego
+     */
     void keyPressEvent(QKeyEvent *event);
 
 signals:

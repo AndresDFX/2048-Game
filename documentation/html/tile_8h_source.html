@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>2048 Game: Fichero Fuente C:/Users/Andres/Desktop/Projects/2048-Game/core/tile.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">2048 Game
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+   <div id="projectbrief">Juego popular que consiste en juntar en baldosas</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_4270bfced15e0e73154b13468c7c9ad9.html">core</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">tile.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="tile_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef TILE_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define TILE_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="tile_8h.html#aa1cf21117577d26c7e176e9d58821cce">   11</a></span>&#160;<span class="preprocessor">#define EXP_MULTIPLIER 2</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_tile.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_tile.html">Tile</a></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_tile.html#aeeb5593bb6b75aae2edfcccbc84ab378">   22</a></span>&#160;    <a class="code" href="class_tile.html#aeeb5593bb6b75aae2edfcccbc84ab378">Tile</a>() { value = 2; upgratedThisMove = <span class="keyword">false</span>; }</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="class_tile.html#a480e50775203166df068f0cfc889d91b">   28</a></span>&#160;    <a class="code" href="class_tile.html#a480e50775203166df068f0cfc889d91b">Tile</a>(<span class="keyword">const</span> <a class="code" href="class_tile.html">Tile</a>&amp; other) { this-&gt;value = other.value; }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_tile.html#a5a3e016198b38345a11b4a36ca6a98ee">   34</a></span>&#160;    <a class="code" href="class_tile.html#a5a3e016198b38345a11b4a36ca6a98ee">Tile</a>(<span class="keywordtype">int</span> value) { this-&gt;value = value; }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_tile.html#aaab3d77d23e378c207ec50e6786052e0">   40</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_tile.html#aaab3d77d23e378c207ec50e6786052e0">getValue</a>() { <span class="keywordflow">return</span> value; }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_tile.html#a69678af4e898533d83f13def410a24db">   45</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_tile.html#a69678af4e898533d83f13def410a24db">upgrade</a>() { value *= <a class="code" href="tile_8h.html#aa1cf21117577d26c7e176e9d58821cce">EXP_MULTIPLIER</a>; }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="class_tile.html#acfa7fdd4f5cd62718ffabac730f74012">   51</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_tile.html#acfa7fdd4f5cd62718ffabac730f74012">setUpgratedThisMove</a>(<span class="keywordtype">bool</span> updated) { this-&gt;upgratedThisMove = updated; }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="class_tile.html#aa117969c1149a90b03b563c275c8c57c">   56</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_tile.html#aa117969c1149a90b03b563c275c8c57c">getUpgratedThisMove</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;upgratedThisMove; }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">int</span> value;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">bool</span> upgratedThisMove;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#endif // TILE_H</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclass_tile_html_aa117969c1149a90b03b563c275c8c57c"><div class="ttname"><a href="class_tile.html#aa117969c1149a90b03b563c275c8c57c">Tile::getUpgratedThisMove</a></div><div class="ttdeci">bool getUpgratedThisMove() const</div><div class="ttdoc">Metodo que obtiene el estado de una baldosa dadas el movimiento de una baldosa dada las acciones de u...</div><div class="ttdef"><b>Definition:</b> <a href="tile_8h_source.html#l00056">tile.h:56</a></div></div>
+<div class="ttc" id="aclass_tile_html_a5a3e016198b38345a11b4a36ca6a98ee"><div class="ttname"><a href="class_tile.html#a5a3e016198b38345a11b4a36ca6a98ee">Tile::Tile</a></div><div class="ttdeci">Tile(int value)</div><div class="ttdoc">Constructor que actualiza el valor de una baldosa.</div><div class="ttdef"><b>Definition:</b> <a href="tile_8h_source.html#l00034">tile.h:34</a></div></div>
+<div class="ttc" id="atile_8h_html_aa1cf21117577d26c7e176e9d58821cce"><div class="ttname"><a href="tile_8h.html#aa1cf21117577d26c7e176e9d58821cce">EXP_MULTIPLIER</a></div><div class="ttdeci">#define EXP_MULTIPLIER</div><div class="ttdef"><b>Definition:</b> <a href="tile_8h_source.html#l00011">tile.h:11</a></div></div>
+<div class="ttc" id="aclass_tile_html_aeeb5593bb6b75aae2edfcccbc84ab378"><div class="ttname"><a href="class_tile.html#aeeb5593bb6b75aae2edfcccbc84ab378">Tile::Tile</a></div><div class="ttdeci">Tile()</div><div class="ttdoc">Constructor vacio que genera una nueva baldosa.</div><div class="ttdef"><b>Definition:</b> <a href="tile_8h_source.html#l00022">tile.h:22</a></div></div>
+<div class="ttc" id="aclass_tile_html_aaab3d77d23e378c207ec50e6786052e0"><div class="ttname"><a href="class_tile.html#aaab3d77d23e378c207ec50e6786052e0">Tile::getValue</a></div><div class="ttdeci">int getValue()</div><div class="ttdoc">Metodo que obtiene el valor de la baldosa.</div><div class="ttdef"><b>Definition:</b> <a href="tile_8h_source.html#l00040">tile.h:40</a></div></div>
+<div class="ttc" id="aclass_tile_html_a69678af4e898533d83f13def410a24db"><div class="ttname"><a href="class_tile.html#a69678af4e898533d83f13def410a24db">Tile::upgrade</a></div><div class="ttdeci">void upgrade()</div><div class="ttdoc">Metodo que actualiza el valor de generacion de una baldosa multiplicandolo por la constante de clase.</div><div class="ttdef"><b>Definition:</b> <a href="tile_8h_source.html#l00045">tile.h:45</a></div></div>
+<div class="ttc" id="aclass_tile_html_acfa7fdd4f5cd62718ffabac730f74012"><div class="ttname"><a href="class_tile.html#acfa7fdd4f5cd62718ffabac730f74012">Tile::setUpgratedThisMove</a></div><div class="ttdeci">void setUpgratedThisMove(bool updated)</div><div class="ttdoc">Metodo que actualiza el movimiento de una baldosa dada las acciones de un jugador en el tablero.</div><div class="ttdef"><b>Definition:</b> <a href="tile_8h_source.html#l00051">tile.h:51</a></div></div>
+<div class="ttc" id="aclass_tile_html"><div class="ttname"><a href="class_tile.html">Tile</a></div><div class="ttdoc">Clase que representa una baldosa dentro de un tablero.</div><div class="ttdef"><b>Definition:</b> <a href="tile_8h_source.html#l00016">tile.h:16</a></div></div>
+<div class="ttc" id="aclass_tile_html_a480e50775203166df068f0cfc889d91b"><div class="ttname"><a href="class_tile.html#a480e50775203166df068f0cfc889d91b">Tile::Tile</a></div><div class="ttdeci">Tile(const Tile &amp;other)</div><div class="ttdoc">Constructor que actualiza el valor de una baldosa dada otra baldosa.</div><div class="ttdef"><b>Definition:</b> <a href="tile_8h_source.html#l00028">tile.h:28</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

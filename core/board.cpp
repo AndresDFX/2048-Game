@@ -2,12 +2,11 @@
 #include "core/tile.h"
 
 #include <iostream>
-#include <stdlib.h>     /* srand, rand */
-#include <time.h>       /* time */
-
-#include <QDebug>
+#include <stdlib.h>
+#include <time.h>
 
 using namespace std;
+
 
 Board::Board(int dimension)
 {
@@ -32,7 +31,7 @@ Board::Board(const Board &other)
 
 Board::~Board()
 {
-    // destroy the tiles
+
     for (int i = 0 ; i < dimension; ++i)
         for (int j = 0; j < dimension; ++j)
             delete board[i][j];
@@ -43,7 +42,7 @@ void Board::init()
     board.resize(dimension);
     for (int i = 0; i < dimension; ++i)
         board[i].resize(dimension);
-    // for loop run through board create tiles
+    // para el ciclo que atraviesa el tablero, crea las baldosas
     for (int i = 0; i < dimension; ++i)
         for (int j = 0; j < dimension; ++j)
             board[i][j] = NULL;
@@ -133,8 +132,8 @@ void Board::move(Direction direction)
                 moveHorizontally(i,j, RIGHT);
     }
 
-    // if the board has changed (and there was no tile collision), place a new tile
-    if (changed(pre_move_board) /*&& !tileCollisionLastRound*/) {
+    // si el tablero ha cambiado (y no hubo colisión de fichas), coloque una nueva ficha
+    if (changed(pre_move_board)) {
         QVector<int> newpos = freePosition();
         board[newpos[0]][newpos[1]] = new Tile();
     }
@@ -157,8 +156,8 @@ void Board::prepareForNextMove()
 
 bool Board::movePossible() const
 {
-    if (full()) {
-        // check if there is still a move to do
+    if (full()) { 
+        // verifica si todavía hay un movimiento por hacer
         Board newBoard(*this);
         newBoard.move(UP);
         if (changed(newBoard)) return true;
@@ -169,7 +168,7 @@ bool Board::movePossible() const
         newBoard.move(RIGHT);
         if (changed(newBoard)) return true;
 
-        // no possible move
+        // no hay movimiento posible
         return false;
     }
     else {
@@ -184,11 +183,12 @@ void Board::moveHorizontally(int i, int j, Direction dir)
         int newj;
         if (dir == RIGHT)
             newj = j + 1;
-        // to the left to the left
+
+        // a la izquierda de la izquierda
         else
             newj = j - 1;
 
-        // keep going in dir direction until we encounter something or get out of bounds
+        // sigue en dirección dir hasta que encontremos una baldosa o salgamos del límite
         while (inbounds(i,newj) && board[i][newj] == NULL) {
             if (dir == RIGHT)
                 newj++;
@@ -196,23 +196,24 @@ void Board::moveHorizontally(int i, int j, Direction dir)
                 newj--;
         }
 
-        // out of bounds or ...
+        // fuera de los limites
         if (!inbounds(i,newj)) {
             if (dir == RIGHT)
                 board[i][dimension-1] = board[i][j];
             else
                 board[i][0] = board[i][j];
         }
-        // ... collision
+        //colisiones
         else {
-            // collision with tile of same value
+            // colisión de baldosas del mismo valor
             if (board[i][newj]->getValue() == board[i][j]->getValue() &&
                 !board[i][newj]->getUpgratedThisMove()) {
 
                 tileCollision = true;
                 handleCollision(i, newj);
             }
-            // collision with tile of other value, put this tile next to it
+
+            // colisión de una baldosa con valor diferente, coloca esta baldosa al lado
             else {
                 if (dir == RIGHT)
                     board[i][newj-1] = board[i][j];
@@ -220,8 +221,9 @@ void Board::moveHorizontally(int i, int j, Direction dir)
                     board[i][newj+1] = board[i][j];
             }
         }
-        // remove the original tile if we made multiple moves
-        // or if we did not make multiple moves but we merged with the tile we were standing next to
+
+        // eliminar la baldosa original si hicimos varios movimientos
+        // o si no hicimos varios movimientos pero nos fusionamos con la baldosa que teniamos al lado
         if ( (dir == RIGHT && newj-1 != j) || (dir == LEFT && newj+1 != j) || tileCollision )
             board[i][j] = NULL;
 
@@ -237,11 +239,11 @@ void Board::moveVertically(int i, int j, Direction dir)
         int newi;
         if (dir == UP)
             newi = i - 1;
-        // down
+        //abajo
         else
             newi = i + 1;
 
-        // keep going in dir direction until we encounter something or get out of bounds
+        // sigue en dirección dir hasta que encontremos una baldosa o salgamos del límite
         while (inbounds(newi,j) && board[newi][j] == NULL) {
             if (dir == UP)
                 newi--;
@@ -249,22 +251,22 @@ void Board::moveVertically(int i, int j, Direction dir)
                 newi++;
         }
 
-        // out of bounds or ...
+        // fuera de los limites...
         if (!inbounds(newi,j)) {
             if (dir == UP)
                 board[0][j] = board[i][j];
             else
                 board[dimension-1][j] = board[i][j];
         }
-        // ... collision
+        //colisiones
         else {
-            // collision with tile of same value
+            // colisión de baldosas del mismo valor
             if (board[newi][j]->getValue() == board[i][j]->getValue() &&
                 !board[newi][j]->getUpgratedThisMove()) {
                 tileCollision = true;
                 handleCollision(newi, j);
             }
-            // collision with tile of other value, put this tile next to it
+            // colisión de una baldosa con valor diferente, coloca esta baldosa al lado
             else {
                 if (dir == UP)
                     board[newi+1][j] = board[i][j];
@@ -272,8 +274,8 @@ void Board::moveVertically(int i, int j, Direction dir)
                     board[newi-1][j] = board[i][j];
             }
         }
-        // remove the original tile if we made multiple moves
-        // or if we did not make multiple moves but we merged with the tile we were standing next to
+        // eliminar la baldosa original si hicimos varios movimientos
+        // o si no hicimos varios movimientos pero nos fusionamos con la baldosa que teniamos al lado
         if ( (dir == UP && newi+1 != i) || (dir == DOWN && newi-1 != i) || tileCollision )
             board[i][j] = NULL;
 

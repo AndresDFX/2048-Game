@@ -35,6 +35,5 @@ HEADERS  += gui/mainwindow.h \
     gui/qresetbutton.h \
     core/observer.h \
     core/subject.h \
-    gui/qgameoverwindow.h \
-    gui/qwinwindow.h
+    gui/qgameoverwindow.h
 

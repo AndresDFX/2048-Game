@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>2048 Game: Fichero Fuente C:/Users/Andres/Desktop/Projects/2048-Game/core/board.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">2048 Game
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+   <div id="projectbrief">Juego popular que consiste en juntar en baldosas</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_4270bfced15e0e73154b13468c7c9ad9.html">core</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">board.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="board_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef BOARD_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define BOARD_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="subject_8h.html">core/subject.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;QVector&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;QString&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">class </span><a class="code" href="class_tile.html">Tile</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="board_8h.html#a224b9163917ac32fc95a60d8c1eec3aaaba595d8bca8bc5e67c37c0a9d89becfa">   20</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="board_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> { <a class="code" href="board_8h.html#a224b9163917ac32fc95a60d8c1eec3aaaba595d8bca8bc5e67c37c0a9d89becfa">UP</a>, <a class="code" href="board_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa9b0b4a95b99523966e0e34ffdadac9da">DOWN</a>, <a class="code" href="board_8h.html#a224b9163917ac32fc95a60d8c1eec3aaadb45120aafd37a973140edee24708065">LEFT</a>, <a class="code" href="board_8h.html#a224b9163917ac32fc95a60d8c1eec3aaaec8379af7490bb9eaaf579cf17876f38">RIGHT</a> };</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_board.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_board.html">Board</a> : <span class="keyword">public</span> <a class="code" href="class_subject.html">Subject</a></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="class_board.html#acb561a9891d4e96356337083c50faeb8">Board</a>(<span class="keywordtype">int</span> dimension);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="class_board.html#acb561a9891d4e96356337083c50faeb8">Board</a>(<span class="keyword">const</span> <a class="code" href="class_board.html">Board</a>&amp; other);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="class_board.html#af73f45730119a1fd8f6670f53f959e68">~Board</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_board.html#aaef819a8d1a10c35d9f802195802236e">reset</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="class_tile.html">Tile</a>* <a class="code" href="class_board.html#aee2f213d03c6ae349bea0fecf5a63371">getTile</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="class_board.html#adcaba3cd38cc942c4cf2ff22a6e5f398">   50</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_board.html#adcaba3cd38cc942c4cf2ff22a6e5f398">getDimension</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> dimension; }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_board.html#a1a739fbfe6feb406f8c094cb01fb8acb">move</a>(<a class="code" href="board_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> direction);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_board.html#ac186919f2abeebdb5133839589f73902">full</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="class_board.html#aaf5f54a02d74effb39b2ea6ff20faf8b">   68</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_board.html#aaf5f54a02d74effb39b2ea6ff20faf8b">getPointsScoredLastRound</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> pointsScoredLastRound; }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="class_board.html#a9993c6e26c8ae929093e2e1380c6bb2c">   74</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_board.html#a9993c6e26c8ae929093e2e1380c6bb2c">isTileCollisionLastRound</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> tileCollisionLastRound; }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_board.html#a98ad930c70892ef81bba413f51c68a72">movePossible</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_board.html#a2cf5d799795f86a50d5d6eb4bd353b93">init</a>();</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    QVector&lt;int&gt; <a class="code" href="class_board.html#a2faed91a9295e7b9bbab24776438a960">freePosition</a>();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_board.html#a74f6e51704f35fe7d4670353db60af57">changed</a>(<a class="code" href="class_board.html">Board</a>&amp; other) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_board.html#ab578e8528779f84a025dbd962fd14e23">inbounds</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_board.html#a683179596555d176866905dde443b8b5">moveHorizontally</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j, <a class="code" href="board_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> dir);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_board.html#af99bb92f00d6e77954143845a3808823">moveVertically</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j, <a class="code" href="board_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> dir);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_board.html#a9797e07e1c32e4eb89b33e057546740b">handleCollision</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_board.html#a21d6d1ce9f50f41097712931a61e5725">prepareForNextMove</a>();</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    QVector&lt;QVector&lt;Tile*&gt; &gt; board;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keywordtype">int</span> dimension;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordtype">int</span> pointsScoredLastRound;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordtype">bool</span> tileCollisionLastRound;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;};</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="preprocessor">#endif // BOARD_H</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aboard_8h_html_a224b9163917ac32fc95a60d8c1eec3aaa9b0b4a95b99523966e0e34ffdadac9da"><div class="ttname"><a href="board_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa9b0b4a95b99523966e0e34ffdadac9da">DOWN</a></div><div class="ttdeci">@ DOWN</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00020">board.h:20</a></div></div>
+<div class="ttc" id="aclass_board_html_a98ad930c70892ef81bba413f51c68a72"><div class="ttname"><a href="class_board.html#a98ad930c70892ef81bba413f51c68a72">Board::movePossible</a></div><div class="ttdeci">bool movePossible() const</div><div class="ttdoc">Metodo que verifica si es posible moverse dentro del tablero.</div><div class="ttdef"><b>Definition:</b> <a href="board_8cpp_source.html#l00157">board.cpp:157</a></div></div>
+<div class="ttc" id="aclass_board_html_a2cf5d799795f86a50d5d6eb4bd353b93"><div class="ttname"><a href="class_board.html#a2cf5d799795f86a50d5d6eb4bd353b93">Board::init</a></div><div class="ttdeci">void init()</div><div class="ttdoc">Metodo que inicializa el tablero vacio.</div><div class="ttdef"><b>Definition:</b> <a href="board_8cpp_source.html#l00040">board.cpp:40</a></div></div>
+<div class="ttc" id="aclass_board_html_a1a739fbfe6feb406f8c094cb01fb8acb"><div class="ttname"><a href="class_board.html#a1a739fbfe6feb406f8c094cb01fb8acb">Board::move</a></div><div class="ttdeci">void move(Direction direction)</div><div class="ttdoc">Metodo que administra y ejecuta el movimiento deacuerdo a la tecla presionado por el jugador.</div><div class="ttdef"><b>Definition:</b> <a href="board_8cpp_source.html#l00107">board.cpp:107</a></div></div>
+<div class="ttc" id="aboard_8h_html_a224b9163917ac32fc95a60d8c1eec3aaaba595d8bca8bc5e67c37c0a9d89becfa"><div class="ttname"><a href="board_8h.html#a224b9163917ac32fc95a60d8c1eec3aaaba595d8bca8bc5e67c37c0a9d89becfa">UP</a></div><div class="ttdeci">@ UP</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00020">board.h:20</a></div></div>
+<div class="ttc" id="aclass_board_html_aaef819a8d1a10c35d9f802195802236e"><div class="ttname"><a href="class_board.html#aaef819a8d1a10c35d9f802195802236e">Board::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdoc">Metodo que coloca el tablero en un estado inicial vacio a excepcion de dos fichas.</div><div class="ttdef"><b>Definition:</b> <a href="board_8cpp_source.html#l00083">board.cpp:83</a></div></div>
+<div class="ttc" id="aclass_board_html_a9797e07e1c32e4eb89b33e057546740b"><div class="ttname"><a href="class_board.html#a9797e07e1c32e4eb89b33e057546740b">Board::handleCollision</a></div><div class="ttdeci">void handleCollision(int i, int j)</div><div class="ttdoc">Metodo que maneja las colisiones de baldosas y actualiza el tablero.</div><div class="ttdef"><b>Definition:</b> <a href="board_8cpp_source.html#l00288">board.cpp:288</a></div></div>
+<div class="ttc" id="aclass_subject_html"><div class="ttname"><a href="class_subject.html">Subject</a></div><div class="ttdoc">Clase sujeto que se utiliza para manejar los diferentes observadores.</div><div class="ttdef"><b>Definition:</b> <a href="subject_8h_source.html#l00020">subject.h:20</a></div></div>
+<div class="ttc" id="aboard_8h_html_a224b9163917ac32fc95a60d8c1eec3aaadb45120aafd37a973140edee24708065"><div class="ttname"><a href="board_8h.html#a224b9163917ac32fc95a60d8c1eec3aaadb45120aafd37a973140edee24708065">LEFT</a></div><div class="ttdeci">@ LEFT</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00020">board.h:20</a></div></div>
+<div class="ttc" id="aclass_board_html_acb561a9891d4e96356337083c50faeb8"><div class="ttname"><a href="class_board.html#acb561a9891d4e96356337083c50faeb8">Board::Board</a></div><div class="ttdeci">Board(int dimension)</div><div class="ttdef"><b>Definition:</b> <a href="board_8cpp_source.html#l00011">board.cpp:11</a></div></div>
+<div class="ttc" id="aclass_board_html_af99bb92f00d6e77954143845a3808823"><div class="ttname"><a href="class_board.html#af99bb92f00d6e77954143845a3808823">Board::moveVertically</a></div><div class="ttdeci">void moveVertically(int i, int j, Direction dir)</div><div class="ttdoc">Metodo que realiza el cambio de estado dado movimiento vertical de una baldosa.</div><div class="ttdef"><b>Definition:</b> <a href="board_8cpp_source.html#l00235">board.cpp:235</a></div></div>
+<div class="ttc" id="aclass_board_html_a9993c6e26c8ae929093e2e1380c6bb2c"><div class="ttname"><a href="class_board.html#a9993c6e26c8ae929093e2e1380c6bb2c">Board::isTileCollisionLastRound</a></div><div class="ttdeci">bool isTileCollisionLastRound() const</div><div class="ttdoc">Metodo que retorna el valor de la variable que verifica si en el ultimo movimiento del jugador hubo u...</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00074">board.h:74</a></div></div>
+<div class="ttc" id="aclass_board_html_a21d6d1ce9f50f41097712931a61e5725"><div class="ttname"><a href="class_board.html#a21d6d1ce9f50f41097712931a61e5725">Board::prepareForNextMove</a></div><div class="ttdeci">void prepareForNextMove()</div><div class="ttdoc">Metodo que reinicializa todos los parametros para que el usuario realice el proximo movimiento.</div><div class="ttdef"><b>Definition:</b> <a href="board_8cpp_source.html#l00144">board.cpp:144</a></div></div>
+<div class="ttc" id="aclass_board_html_ac186919f2abeebdb5133839589f73902"><div class="ttname"><a href="class_board.html#ac186919f2abeebdb5133839589f73902">Board::full</a></div><div class="ttdeci">bool full() const</div><div class="ttdoc">Metodo que determina si el tablero esta lleno.</div><div class="ttdef"><b>Definition:</b> <a href="board_8cpp_source.html#l00295">board.cpp:295</a></div></div>
+<div class="ttc" id="aclass_board_html_a74f6e51704f35fe7d4670353db60af57"><div class="ttname"><a href="class_board.html#a74f6e51704f35fe7d4670353db60af57">Board::changed</a></div><div class="ttdeci">bool changed(Board &amp;other) const</div><div class="ttdoc">Metodo que registra los cambios en el tablero.</div><div class="ttdef"><b>Definition:</b> <a href="board_8cpp_source.html#l00069">board.cpp:69</a></div></div>
+<div class="ttc" id="aclass_board_html_ab578e8528779f84a025dbd962fd14e23"><div class="ttname"><a href="class_board.html#ab578e8528779f84a025dbd962fd14e23">Board::inbounds</a></div><div class="ttdeci">bool inbounds(int i, int j)</div><div class="ttdoc">Metodo que determina si la baldosa se encuentra dentro del tabler.</div><div class="ttdef"><b>Definition:</b> <a href="board_8cpp_source.html#l00305">board.cpp:305</a></div></div>
+<div class="ttc" id="aclass_board_html"><div class="ttname"><a href="class_board.html">Board</a></div><div class="ttdoc">Clase que representa e implementa todos los metodos necesarios para que realizar acciones dentro de u...</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00025">board.h:25</a></div></div>
+<div class="ttc" id="aboard_8h_html_a224b9163917ac32fc95a60d8c1eec3aa"><div class="ttname"><a href="board_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a></div><div class="ttdeci">Direction</div><div class="ttdoc">Representacion las direcciones de los movimientos realizados por el jugador.</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00020">board.h:20</a></div></div>
+<div class="ttc" id="aclass_board_html_a683179596555d176866905dde443b8b5"><div class="ttname"><a href="class_board.html#a683179596555d176866905dde443b8b5">Board::moveHorizontally</a></div><div class="ttdeci">void moveHorizontally(int i, int j, Direction dir)</div><div class="ttdoc">Metodo que realiza el cambio de estado dado movimiento horizontal de una baldosa.</div><div class="ttdef"><b>Definition:</b> <a href="board_8cpp_source.html#l00179">board.cpp:179</a></div></div>
+<div class="ttc" id="aclass_tile_html"><div class="ttname"><a href="class_tile.html">Tile</a></div><div class="ttdoc">Clase que representa una baldosa dentro de un tablero.</div><div class="ttdef"><b>Definition:</b> <a href="tile_8h_source.html#l00016">tile.h:16</a></div></div>
+<div class="ttc" id="aboard_8h_html_a224b9163917ac32fc95a60d8c1eec3aaaec8379af7490bb9eaaf579cf17876f38"><div class="ttname"><a href="board_8h.html#a224b9163917ac32fc95a60d8c1eec3aaaec8379af7490bb9eaaf579cf17876f38">RIGHT</a></div><div class="ttdeci">@ RIGHT</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00020">board.h:20</a></div></div>
+<div class="ttc" id="aclass_board_html_aee2f213d03c6ae349bea0fecf5a63371"><div class="ttname"><a href="class_board.html#aee2f213d03c6ae349bea0fecf5a63371">Board::getTile</a></div><div class="ttdeci">Tile * getTile(int i, int j)</div><div class="ttdoc">Metodo que retorna un elemento del tablero.</div><div class="ttdef"><b>Definition:</b> <a href="board_8cpp_source.html#l00102">board.cpp:102</a></div></div>
+<div class="ttc" id="aclass_board_html_aaf5f54a02d74effb39b2ea6ff20faf8b"><div class="ttname"><a href="class_board.html#aaf5f54a02d74effb39b2ea6ff20faf8b">Board::getPointsScoredLastRound</a></div><div class="ttdeci">int getPointsScoredLastRound() const</div><div class="ttdoc">Metodo que retorna el valor de la variable que verifica si en el ultimo movimiento del jugador hubo u...</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00068">board.h:68</a></div></div>
+<div class="ttc" id="aclass_board_html_adcaba3cd38cc942c4cf2ff22a6e5f398"><div class="ttname"><a href="class_board.html#adcaba3cd38cc942c4cf2ff22a6e5f398">Board::getDimension</a></div><div class="ttdeci">int getDimension() const</div><div class="ttdoc">Metodo que retorna el valor de la variable almacena el tamaño de la baldosa.</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00050">board.h:50</a></div></div>
+<div class="ttc" id="aclass_board_html_af73f45730119a1fd8f6670f53f959e68"><div class="ttname"><a href="class_board.html#af73f45730119a1fd8f6670f53f959e68">Board::~Board</a></div><div class="ttdeci">~Board()</div><div class="ttdef"><b>Definition:</b> <a href="board_8cpp_source.html#l00032">board.cpp:32</a></div></div>
+<div class="ttc" id="asubject_8h_html"><div class="ttname"><a href="subject_8h.html">subject.h</a></div></div>
+<div class="ttc" id="aclass_board_html_a2faed91a9295e7b9bbab24776438a960"><div class="ttname"><a href="class_board.html#a2faed91a9295e7b9bbab24776438a960">Board::freePosition</a></div><div class="ttdeci">QVector&lt; int &gt; freePosition()</div><div class="ttdoc">Metodo que genera una posición libre y aleatoria en el tablero.</div><div class="ttdef"><b>Definition:</b> <a href="board_8cpp_source.html#l00051">board.cpp:51</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

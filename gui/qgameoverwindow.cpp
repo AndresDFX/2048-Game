@@ -12,9 +12,10 @@ QGameOverWindow::QGameOverWindow(QWidget *parent) :
     setStyleSheet("QGameOverWindow { background: rgb(237,224,200); }");
     setFixedSize(425,205);
     QVBoxLayout *layout = new QVBoxLayout(this);
-    // juego sobre etiqueta
+    // etiqueta sobre la ventana game over
     QLabel* gameover = new QLabel("Perdiste!", this);
     gameover->setStyleSheet("QLabel { color: rgb(119,110,101); font: 40pt; font: bold;} ");  
+
     // Botón de reinicio
     reset = new QResetButton(this);
     reset->setFixedHeight(50);

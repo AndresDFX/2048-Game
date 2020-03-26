@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>2048 Game: Fichero Fuente C:/Users/Andres/Desktop/Projects/2048-Game/gui/qgameboard.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">2048 Game
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+   <div id="projectbrief">Juego popular que consiste en juntar en baldosas</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_11bc0974ce736ce9a6fadebbeb7a8314.html">gui</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">qgameboard.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="qgameboard_8cpp.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="qgameboard_8h.html">gui/qgameboard.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="board_8h.html">core/board.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="game_8h.html">core/game.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="qtile_8h.html">gui/qtile.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tile_8h.html">core/tile.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="qresetbutton_8h.html">gui/qresetbutton.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;QVBoxLayout&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QGridLayout&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;QPushButton&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;QLabel&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;QKeyEvent&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;QVBoxLayout&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;QString&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;QDebug&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_q_game_board.html#a8d251260daa629fb12dd6d7d802ad3fe">   22</a></span>&#160;<a class="code" href="class_q_game_board.html#a8d251260daa629fb12dd6d7d802ad3fe">QGameBoard::~QGameBoard</a>()</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">delete</span> game;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_q_game_board.html#afe4481d7753a6656c73c54ab5a51136b">   27</a></span>&#160;<a class="code" href="class_q_game_board.html#afe4481d7753a6656c73c54ab5a51136b">QGameBoard::QGameBoard</a>(QWidget *parent) :</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    QWidget(parent)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment">// establecer tamaño predeterminado</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    resize(650,450);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">// crea el diseño principal</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    mainLayout = <span class="keyword">new</span> QVBoxLayout();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    setLayout(mainLayout);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">// se creará en drawBoard ()</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    boardLayout = NULL;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">// crea el juego y se regístrate un observador</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    game = <span class="keyword">new</span> <a class="code" href="class_game.html">Game</a>(4);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    game-&gt;<a class="code" href="class_subject.html#a2f4bbe895109df8d4c1d54d4b2e14b7b">registerObserver</a>(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">// crea el tablero gui y lo dibuja</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    gui_board.resize(game-&gt;<a class="code" href="class_game.html#a721629b9d41317b91d91821333bb65f9">getGameBoard</a>()-&gt;<a class="code" href="class_board.html#adcaba3cd38cc942c4cf2ff22a6e5f398">getDimension</a>());</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; game-&gt;<a class="code" href="class_game.html#a721629b9d41317b91d91821333bb65f9">getGameBoard</a>()-&gt;getDimension(); ++i)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        gui_board[i].resize(game-&gt;<a class="code" href="class_game.html#a721629b9d41317b91d91821333bb65f9">getGameBoard</a>()-&gt;<a class="code" href="class_board.html#adcaba3cd38cc942c4cf2ff22a6e5f398">getDimension</a>());</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; game-&gt;<a class="code" href="class_game.html#a721629b9d41317b91d91821333bb65f9">getGameBoard</a>()-&gt;getDimension(); ++i)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; game-&gt;<a class="code" href="class_game.html#a721629b9d41317b91d91821333bb65f9">getGameBoard</a>()-&gt;getDimension(); ++j)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            gui_board[i][j] = NULL;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="class_q_game_board.html#a8f79eb61430422ee83863afa167fbbcb">drawBoard</a>();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">// crea el widget de puntuación y lo agréga al tablero</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    score = <span class="keyword">new</span> QLabel(QString(<span class="stringliteral">&quot;PUNTAJE: %1&quot;</span>).arg(game-&gt;<a class="code" href="class_game.html#adff34c2ddf03af26dcddad0a942bbcf7">getScore</a>()));</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    score-&gt;setStyleSheet(<span class="stringliteral">&quot;QLabel { color: rgb(235,224,214); font: 16pt; }&quot;</span>);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    score-&gt;setFixedHeight(50);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    mainLayout-&gt;insertWidget(1, score, 0, Qt::AlignRight);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">// estilo para el tablero</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    setStyleSheet(<span class="stringliteral">&quot;QGameBoard { background-color: rgb(187,173,160) }&quot;</span>);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    connect(gameOverWindow.<a class="code" href="class_q_game_over_window.html#a39699534d7e140eb80a27a2156cf3694">getResetBtn</a>(), SIGNAL(clicked()), <span class="keyword">this</span>, SLOT(<a class="code" href="class_q_game_board.html#a58e8980ba076a7a0e7999932aabbce2d">resetGame</a>()));</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="class_q_game_board.html#a7d8efe52a04c6195b2af919283483b0a">   70</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_q_game_board.html#a7d8efe52a04c6195b2af919283483b0a">QGameBoard::keyPressEvent</a>(QKeyEvent *event)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">switch</span> (event-&gt;key()) {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">case</span> Qt::Key_Up:</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        game-&gt;<a class="code" href="class_game.html#a1db3070119a9e521de526bcd28d3b1b6">move</a>(<a class="code" href="board_8h.html#a224b9163917ac32fc95a60d8c1eec3aaaba595d8bca8bc5e67c37c0a9d89becfa">UP</a>);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">case</span> Qt::Key_Left:</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        game-&gt;<a class="code" href="class_game.html#a1db3070119a9e521de526bcd28d3b1b6">move</a>(<a class="code" href="board_8h.html#a224b9163917ac32fc95a60d8c1eec3aaadb45120aafd37a973140edee24708065">LEFT</a>);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">case</span> Qt::Key_Right:</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        game-&gt;<a class="code" href="class_game.html#a1db3070119a9e521de526bcd28d3b1b6">move</a>(<a class="code" href="board_8h.html#a224b9163917ac32fc95a60d8c1eec3aaaec8379af7490bb9eaaf579cf17876f38">RIGHT</a>);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">case</span> Qt::Key_Down:</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        game-&gt;<a class="code" href="class_game.html#a1db3070119a9e521de526bcd28d3b1b6">move</a>(<a class="code" href="board_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa9b0b4a95b99523966e0e34ffdadac9da">DOWN</a>);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="class_q_game_board.html#a4d8532e3c759701d5bff8f582633c564">   88</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_q_game_board.html#a4d8532e3c759701d5bff8f582633c564">QGameBoard::notify</a>()</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;{</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">if</span> (game-&gt;<a class="code" href="class_game.html#afedf2ae555affbcb6df2d3405cb73625">isGameOver</a>())</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        gameOverWindow.show();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">if</span> (game-&gt;<a class="code" href="class_game.html#adff34c2ddf03af26dcddad0a942bbcf7">getScore</a>()==2048)</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        score-&gt;setText(QString(<span class="stringliteral">&quot;Su puntaje es 2048, Felicitaciones! Siga jugando para aumentar su puntaje.\t\t PUNTAJE: %1&quot;</span>).arg(game-&gt;<a class="code" href="class_game.html#adff34c2ddf03af26dcddad0a942bbcf7">getScore</a>()));</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        score-&gt;setText(QString(<span class="stringliteral">&quot;PUNTAJE: %1&quot;</span>).arg(game-&gt;<a class="code" href="class_game.html#adff34c2ddf03af26dcddad0a942bbcf7">getScore</a>()));</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <a class="code" href="class_q_game_board.html#a8f79eb61430422ee83863afa167fbbcb">drawBoard</a>();</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="class_q_game_board.html#a8f79eb61430422ee83863afa167fbbcb">  102</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_q_game_board.html#a8f79eb61430422ee83863afa167fbbcb">QGameBoard::drawBoard</a>()</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;{</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keyword">delete</span> boardLayout;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    boardLayout = <span class="keyword">new</span> QGridLayout();</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; game-&gt;<a class="code" href="class_game.html#a721629b9d41317b91d91821333bb65f9">getGameBoard</a>()-&gt;getDimension(); ++i) {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; game-&gt;<a class="code" href="class_game.html#a721629b9d41317b91d91821333bb65f9">getGameBoard</a>()-&gt;getDimension(); ++j) {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            <span class="keyword">delete</span> gui_board[i][j];</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            gui_board[i][j] = <span class="keyword">new</span> <a class="code" href="class_q_tile.html">QTile</a>(game-&gt;<a class="code" href="class_game.html#a721629b9d41317b91d91821333bb65f9">getGameBoard</a>()-&gt;<a class="code" href="class_board.html#aee2f213d03c6ae349bea0fecf5a63371">getTile</a>(i,j));</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            boardLayout-&gt;addWidget(gui_board[i][j], i, j);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            gui_board[i][j]-&gt;draw();</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        }</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    mainLayout-&gt;insertLayout(0, boardLayout);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="class_q_game_board.html#a58e8980ba076a7a0e7999932aabbce2d">  119</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_q_game_board.html#a58e8980ba076a7a0e7999932aabbce2d">QGameBoard::resetGame</a>()</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;{</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    game-&gt;<a class="code" href="class_game.html#aeb468737e1495cfcfbf512cfdc751117">restart</a>();</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <a class="code" href="class_q_game_board.html#a8f79eb61430422ee83863afa167fbbcb">drawBoard</a>();</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    score-&gt;setText(QString(<span class="stringliteral">&quot;PUNTAJE: %1&quot;</span>).arg(game-&gt;<a class="code" href="class_game.html#adff34c2ddf03af26dcddad0a942bbcf7">getScore</a>()));</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    gameOverWindow.hide();</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclass_game_html_adff34c2ddf03af26dcddad0a942bbcf7"><div class="ttname"><a href="class_game.html#adff34c2ddf03af26dcddad0a942bbcf7">Game::getScore</a></div><div class="ttdeci">int getScore() const</div><div class="ttdoc">Metodo que obtiene el score dada las colisiones de baldosas validas.</div><div class="ttdef"><b>Definition:</b> <a href="game_8h_source.html#l00073">game.h:73</a></div></div>
+<div class="ttc" id="aclass_game_html_a1db3070119a9e521de526bcd28d3b1b6"><div class="ttname"><a href="class_game.html#a1db3070119a9e521de526bcd28d3b1b6">Game::move</a></div><div class="ttdeci">void move(Direction dir)</div><div class="ttdoc">Metodo que dada una direccion verifica si es posible realizar el movimiento y actualiza las constante...</div><div class="ttdef"><b>Definition:</b> <a href="game_8cpp_source.html#l00024">game.cpp:24</a></div></div>
+<div class="ttc" id="aboard_8h_html_a224b9163917ac32fc95a60d8c1eec3aaa9b0b4a95b99523966e0e34ffdadac9da"><div class="ttname"><a href="board_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa9b0b4a95b99523966e0e34ffdadac9da">DOWN</a></div><div class="ttdeci">@ DOWN</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00020">board.h:20</a></div></div>
+<div class="ttc" id="aclass_q_game_board_html_a8f79eb61430422ee83863afa167fbbcb"><div class="ttname"><a href="class_q_game_board.html#a8f79eb61430422ee83863afa167fbbcb">QGameBoard::drawBoard</a></div><div class="ttdeci">void drawBoard()</div><div class="ttdoc">Metodo que dibuja todos los componentes dentro de un tablero en un Layout.</div><div class="ttdef"><b>Definition:</b> <a href="qgameboard_8cpp_source.html#l00102">qgameboard.cpp:102</a></div></div>
+<div class="ttc" id="aqtile_8h_html"><div class="ttname"><a href="qtile_8h.html">qtile.h</a></div></div>
+<div class="ttc" id="aclass_q_game_board_html_afe4481d7753a6656c73c54ab5a51136b"><div class="ttname"><a href="class_q_game_board.html#afe4481d7753a6656c73c54ab5a51136b">QGameBoard::QGameBoard</a></div><div class="ttdeci">QGameBoard(QWidget *parent=0)</div><div class="ttdef"><b>Definition:</b> <a href="qgameboard_8cpp_source.html#l00027">qgameboard.cpp:27</a></div></div>
+<div class="ttc" id="aboard_8h_html_a224b9163917ac32fc95a60d8c1eec3aaaba595d8bca8bc5e67c37c0a9d89becfa"><div class="ttname"><a href="board_8h.html#a224b9163917ac32fc95a60d8c1eec3aaaba595d8bca8bc5e67c37c0a9d89becfa">UP</a></div><div class="ttdeci">@ UP</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00020">board.h:20</a></div></div>
+<div class="ttc" id="aboard_8h_html_a224b9163917ac32fc95a60d8c1eec3aaadb45120aafd37a973140edee24708065"><div class="ttname"><a href="board_8h.html#a224b9163917ac32fc95a60d8c1eec3aaadb45120aafd37a973140edee24708065">LEFT</a></div><div class="ttdeci">@ LEFT</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00020">board.h:20</a></div></div>
+<div class="ttc" id="aclass_q_game_board_html_a8d251260daa629fb12dd6d7d802ad3fe"><div class="ttname"><a href="class_q_game_board.html#a8d251260daa629fb12dd6d7d802ad3fe">QGameBoard::~QGameBoard</a></div><div class="ttdeci">~QGameBoard()</div><div class="ttdef"><b>Definition:</b> <a href="qgameboard_8cpp_source.html#l00022">qgameboard.cpp:22</a></div></div>
+<div class="ttc" id="aclass_subject_html_a2f4bbe895109df8d4c1d54d4b2e14b7b"><div class="ttname"><a href="class_subject.html#a2f4bbe895109df8d4c1d54d4b2e14b7b">Subject::registerObserver</a></div><div class="ttdeci">void registerObserver(Observer *observer)</div><div class="ttdoc">Metodo que registra los multiples observadores de clase dentro de una lista.</div><div class="ttdef"><b>Definition:</b> <a href="subject_8cpp_source.html#l00014">subject.cpp:14</a></div></div>
+<div class="ttc" id="aqgameboard_8h_html"><div class="ttname"><a href="qgameboard_8h.html">qgameboard.h</a></div></div>
+<div class="ttc" id="aclass_game_html_aeb468737e1495cfcfbf512cfdc751117"><div class="ttname"><a href="class_game.html#aeb468737e1495cfcfbf512cfdc751117">Game::restart</a></div><div class="ttdeci">void restart()</div><div class="ttdoc">Metodo que restaura todas las variables del juego (y el tablero) para iniciar una nueva ronda.</div><div class="ttdef"><b>Definition:</b> <a href="game_8cpp_source.html#l00046">game.cpp:46</a></div></div>
+<div class="ttc" id="aclass_q_game_board_html_a58e8980ba076a7a0e7999932aabbce2d"><div class="ttname"><a href="class_q_game_board.html#a58e8980ba076a7a0e7999932aabbce2d">QGameBoard::resetGame</a></div><div class="ttdeci">void resetGame()</div><div class="ttdef"><b>Definition:</b> <a href="qgameboard_8cpp_source.html#l00119">qgameboard.cpp:119</a></div></div>
+<div class="ttc" id="aqresetbutton_8h_html"><div class="ttname"><a href="qresetbutton_8h.html">qresetbutton.h</a></div></div>
+<div class="ttc" id="aclass_q_game_board_html_a4d8532e3c759701d5bff8f582633c564"><div class="ttname"><a href="class_q_game_board.html#a4d8532e3c759701d5bff8f582633c564">QGameBoard::notify</a></div><div class="ttdeci">void notify()</div><div class="ttdef"><b>Definition:</b> <a href="qgameboard_8cpp_source.html#l00088">qgameboard.cpp:88</a></div></div>
+<div class="ttc" id="aclass_game_html_afedf2ae555affbcb6df2d3405cb73625"><div class="ttname"><a href="class_game.html#afedf2ae555affbcb6df2d3405cb73625">Game::isGameOver</a></div><div class="ttdeci">bool isGameOver() const</div><div class="ttdoc">Metodo que determina si el jugador perdio porque no hay ningun movimiento posible de las baldosas.</div><div class="ttdef"><b>Definition:</b> <a href="game_8h_source.html#l00055">game.h:55</a></div></div>
+<div class="ttc" id="aclass_q_tile_html"><div class="ttname"><a href="class_q_tile.html">QTile</a></div><div class="ttdoc">Clase de la interfaz grafica que representa una baldosa.</div><div class="ttdef"><b>Definition:</b> <a href="qtile_8h_source.html#l00019">qtile.h:19</a></div></div>
+<div class="ttc" id="aclass_q_game_board_html_a7d8efe52a04c6195b2af919283483b0a"><div class="ttname"><a href="class_q_game_board.html#a7d8efe52a04c6195b2af919283483b0a">QGameBoard::keyPressEvent</a></div><div class="ttdeci">void keyPressEvent(QKeyEvent *event)</div><div class="ttdoc">Manejador de eventos para el teclado.</div><div class="ttdef"><b>Definition:</b> <a href="qgameboard_8cpp_source.html#l00070">qgameboard.cpp:70</a></div></div>
+<div class="ttc" id="aboard_8h_html"><div class="ttname"><a href="board_8h.html">board.h</a></div></div>
+<div class="ttc" id="aboard_8h_html_a224b9163917ac32fc95a60d8c1eec3aaaec8379af7490bb9eaaf579cf17876f38"><div class="ttname"><a href="board_8h.html#a224b9163917ac32fc95a60d8c1eec3aaaec8379af7490bb9eaaf579cf17876f38">RIGHT</a></div><div class="ttdeci">@ RIGHT</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00020">board.h:20</a></div></div>
+<div class="ttc" id="aclass_board_html_aee2f213d03c6ae349bea0fecf5a63371"><div class="ttname"><a href="class_board.html#aee2f213d03c6ae349bea0fecf5a63371">Board::getTile</a></div><div class="ttdeci">Tile * getTile(int i, int j)</div><div class="ttdoc">Metodo que retorna un elemento del tablero.</div><div class="ttdef"><b>Definition:</b> <a href="board_8cpp_source.html#l00102">board.cpp:102</a></div></div>
+<div class="ttc" id="agame_8h_html"><div class="ttname"><a href="game_8h.html">game.h</a></div></div>
+<div class="ttc" id="aclass_board_html_adcaba3cd38cc942c4cf2ff22a6e5f398"><div class="ttname"><a href="class_board.html#adcaba3cd38cc942c4cf2ff22a6e5f398">Board::getDimension</a></div><div class="ttdeci">int getDimension() const</div><div class="ttdoc">Metodo que retorna el valor de la variable almacena el tamaño de la baldosa.</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00050">board.h:50</a></div></div>
+<div class="ttc" id="atile_8h_html"><div class="ttname"><a href="tile_8h.html">tile.h</a></div></div>
+<div class="ttc" id="aclass_q_game_over_window_html_a39699534d7e140eb80a27a2156cf3694"><div class="ttname"><a href="class_q_game_over_window.html#a39699534d7e140eb80a27a2156cf3694">QGameOverWindow::getResetBtn</a></div><div class="ttdeci">QResetButton * getResetBtn() const</div><div class="ttdef"><b>Definition:</b> <a href="qgameoverwindow_8cpp_source.html#l00031">qgameoverwindow.cpp:31</a></div></div>
+<div class="ttc" id="aclass_game_html_a721629b9d41317b91d91821333bb65f9"><div class="ttname"><a href="class_game.html#a721629b9d41317b91d91821333bb65f9">Game::getGameBoard</a></div><div class="ttdeci">Board * getGameBoard() const</div><div class="ttdoc">Metodo que obtiene el tablero de juego.</div><div class="ttdef"><b>Definition:</b> <a href="game_8h_source.html#l00061">game.h:61</a></div></div>
+<div class="ttc" id="aclass_game_html"><div class="ttname"><a href="class_game.html">Game</a></div><div class="ttdoc">Clase que representa e implementa todos los metodos necesarios para que un jugador realice acciones s...</div><div class="ttdef"><b>Definition:</b> <a href="game_8h_source.html#l00023">game.h:23</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

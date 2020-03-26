@@ -1,3 +1,10 @@
+/**
+  * @file mainwindow.h
+  * @version 1.0
+  * @date 25/03/2020
+  *
+*/
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -5,10 +12,17 @@
 
 #include <QMainWindow>
 
+
+/**
+ * @namespace Espacio de nombre para representar el uso de la clase en cuestion MainWindow
+ */
 namespace Ui {
 class MainWindow;
 }
 
+/**
+ * @brief Clase que representa la ventana principal asociando un juego dentro del tablero
+ */
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -18,7 +32,6 @@ public:
     ~MainWindow();
 
 private:
-//    Ui::MainWindow *ui;
     QGameBoard *gameBoard;
 
 };
